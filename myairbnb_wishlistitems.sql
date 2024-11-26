@@ -1,0 +1,57 @@
+-- MySQL dump 10.13  Distrib 8.0.33, for Win64 (x86_64)
+--
+-- Host: localhost    Database: myairbnb
+-- ------------------------------------------------------
+-- Server version	8.0.33
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `wishlistitems`
+--
+
+DROP TABLE IF EXISTS `wishlistitems`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `wishlistitems` (
+  `WishlistItemID` int NOT NULL AUTO_INCREMENT,
+  `WishlistID` int DEFAULT NULL,
+  `PropertyID` int DEFAULT NULL,
+  `AddedAt` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`WishlistItemID`),
+  KEY `WishlistID` (`WishlistID`),
+  KEY `PropertyID` (`PropertyID`),
+  CONSTRAINT `wishlistitems_ibfk_1` FOREIGN KEY (`WishlistID`) REFERENCES `wishlists` (`WishlistID`),
+  CONSTRAINT `wishlistitems_ibfk_2` FOREIGN KEY (`PropertyID`) REFERENCES `property` (`PropertyID`)
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `wishlistitems`
+--
+
+LOCK TABLES `wishlistitems` WRITE;
+/*!40000 ALTER TABLE `wishlistitems` DISABLE KEYS */;
+INSERT INTO `wishlistitems` VALUES (1,1,1,'2024-08-01 09:00:00'),(2,1,2,'2024-08-02 10:15:00'),(3,2,3,'2024-08-03 11:30:00'),(4,2,4,'2024-08-04 13:45:00'),(5,3,5,'2024-08-05 14:00:00'),(6,3,6,'2024-08-06 15:10:00'),(7,4,7,'2024-08-07 08:20:00'),(8,4,8,'2024-08-08 09:30:00'),(9,5,9,'2024-08-09 10:40:00'),(10,5,10,'2024-08-10 11:50:00'),(11,6,11,'2024-08-11 12:05:00'),(12,6,12,'2024-08-12 13:15:00'),(13,7,13,'2024-08-13 14:25:00'),(14,7,14,'2024-08-14 15:35:00'),(15,8,15,'2024-08-15 08:45:00'),(16,8,16,'2024-08-16 10:00:00'),(17,9,17,'2024-08-17 11:15:00'),(18,9,18,'2024-08-18 12:30:00'),(19,10,19,'2024-08-19 13:45:00'),(20,10,20,'2024-08-20 14:55:00');
+/*!40000 ALTER TABLE `wishlistitems` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2024-09-14 21:22:23
